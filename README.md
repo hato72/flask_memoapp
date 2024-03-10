@@ -1,4 +1,4 @@
-# my_memo_app2をdocker-composeしたもの
+# メモとタスク管理アプリ
 
 ## 実行方法
     cd ~/.vscode/flask/my_memo_app2
