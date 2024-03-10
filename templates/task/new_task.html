@@ -1,0 +1,38 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>New Task</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+    <div class="container">
+        <h1>新規課題</h1>
+        <form method="POST" action="{{url_for('task.new_task')}}" novalidate>
+            <label for="content">課題内容</label><br>
+            <input type="text" id="content" name="content" class="text-input"><br>
+            <input type="submit" value="追加" class="button">
+        </form>
+    </div>
+</body>
+</html> -->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="my-4">新規課題</h1>
+    {% from "_formhelpers.html" import render_field %}
+    <form method="POST" action="{{url_for('task.new_task')}}" novalidate>
+        {{form.hidden_tag()}}
+        <div class="mb-3">
+            {{render_field(form.title,class="form-control")}}
+        </div>
+        <div class="mb-3">
+            {{render_field(form.content,class="form-control",rows=5)}}
+        </div>
+        <div class="mb-3">
+            {{form.submit(class="btn btn-primary")}}
+        </div>
+    </form>
+
+    <a href="{{url_for('task.index')}}" class="btn btn-secondary mt-2">戻る</a>
+{% endblock %}
